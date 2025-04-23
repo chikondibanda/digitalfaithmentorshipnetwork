@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery API Access</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>API Response</h1>
+    <div id="api-response">Loading...</div>
+    <button id="fetch-data">Fetch Data</button>
+
+    <script>
+        $(document).ready(function () {
+            $('#fetch-data').click(function () {
+                $('#api-response').load('https://chikondibanda.pythonanywhere.com/hello');
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -12,8 +12,12 @@ def home():
     return render_template('index.html')
 
 @app.route('/login', methods=['GET'])
-def home():
-    return render_template('templates/login.html')
+def view_login():
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET'])
+def view_register():
+    return render_template('register.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -54,7 +58,7 @@ def dashboard():
         return redirect(url_for('home'))
     email = session.get('email')
     user = db.get_user_by_email(email)
-    return render_template('templates/dashboard.html', user=user)
+    return render_template('dashboard.html', user=user)
 
 @app.route('/logout')
 def logout():
@@ -63,4 +67,4 @@ def logout():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5050)
